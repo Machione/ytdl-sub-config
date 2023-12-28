@@ -1,2 +1,3 @@
 # ytdl-sub-config
-Configuration for ytdl-sub to download YouTube subscriptions to Jellyfin
+
+Configuration for [ytdl-sub](https://github.com/jmbannon/ytdl-sub) to download YouTube subscriptions to [Jellyfin](https://jellyfin.org).
