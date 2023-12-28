@@ -1,0 +1,62 @@
+configuration:
+  working_directory: "/home/ryan/ytdl-sub/tmp"
+
+presets:
+  youtube:
+    preset:
+      - "only_recent_videos"
+      - "max_1080p"
+      - "no_shorts"
+      - "sponsorblock"
+    output_options:
+      output_directory: "/srv/dev-disk-by-uuid-4c0af074-2500-4578-a2f3-fd6cc3668ef8/Jellyfin/YouTube"
+      maintain_download_archive: True
+      file_name: "{video_path}.{ext}"
+      thumbnail_name: "{video_path}.{thumbnail_ext}"
+    ytdl_options:
+      break_on_existing: True
+    download:
+      playlist_thumbnails:
+        - name: "poster.jpg"
+          uid: "avatar_uncropped"
+        - name: "banner.jpg"
+          uid: "banner_uncropped"
+    overrides:
+      video_name: "{title_sanitized}"
+      video_type: "{channel}"
+      video_path: "{video_type_sanitized}/{video_name}"
+      season: "{upload_date_standardized}"
+      episode: "{title_sanitized}"
+
+  # Preset to only download and keep recent videos
+  only_recent_videos:
+    date_range:
+      after: "today-{download_range}"
+    ytdl_options:
+      break_on_reject: True
+    output_options:
+      keep_files_after: "today-{download_range}"
+    overrides:
+      download_range: "2months"
+
+  # Preset to cut sponsor segments from videos
+  sponsorblock:
+    date_range:
+      before: "today-2days"
+    chapters:
+      sponsorblock_categories:
+        - "intro"
+        - "outro"
+        - "selfpromo"
+        - "preview"
+        - "interaction"
+        - "sponsor"
+        - "music_offtopic"
+      remove_sponsorblock_categories: "all"
+      force_key_frames: False
+
+  # Filter out any YouTube shorts
+  no_shorts:
+    match_filters:
+      filters:
+        - "original_url!*=/shorts/"
