@@ -1,5 +1,5 @@
 configuration:
-  working_directory: "/home/ryan/ytdl-sub/tmp"
+  working_directory: "/tmp/ytdl-sub"
 
 presets:
   youtube:
