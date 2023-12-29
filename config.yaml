@@ -37,7 +37,7 @@ presets:
     output_options:
       keep_files_after: "today-{download_range}"
     overrides:
-      download_range: "2months"
+      download_range: "3weeks"
 
   # Preset to cut sponsor segments from videos
   sponsorblock:
