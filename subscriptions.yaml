@@ -177,3 +177,9 @@ Woodworking Finland:
   preset: "youtube"
   download:
     url: "https://www.youtube.com/@WoodworkingFinland"
+
+Proper Engineering:
+  preset: "youtube"
+  download:
+    url: "https://www.youtube.com/@properengineering"
+
