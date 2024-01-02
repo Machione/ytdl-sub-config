@@ -41,8 +41,6 @@ presets:
 
   # Preset to cut sponsor segments from videos
   sponsorblock:
-    date_range:
-      before: "today-2days"
     chapters:
       sponsorblock_categories:
         - "intro"
