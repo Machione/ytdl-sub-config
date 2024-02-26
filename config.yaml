@@ -5,7 +5,7 @@ presets:
   youtube:
     preset:
       - "only_recent_videos"
-      - "max_1080p"
+      - "max_720p"
       - "no_shorts"
       - "sponsorblock"
     output_options:
